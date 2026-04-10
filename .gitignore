@@ -9,3 +9,5 @@ Thumbs.db
 # Project folders should be ignored if they are outside the main nya-train folder
 dist/
 node_modules/
+
+LWeb_9_10_RailwayStation.pdf
