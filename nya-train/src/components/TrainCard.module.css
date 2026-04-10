@@ -1,0 +1,153 @@
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  background: var(--primary);
+  opacity: 0.8;
+}
+
+.info {
+  flex: 1;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.number {
+  background: var(--secondary);
+  color: var(--primary);
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+}
+
+.type {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.routeContainer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.city {
+  display: flex;
+  flex-direction: column;
+}
+
+.cityName {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.time {
+  font-size: 0.95rem;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: var(--accent);
+  padding: 0 10px;
+}
+
+.duration {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  margin-left: 40px;
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.price small {
+  font-size: 0.8rem;
+  font-weight: 400;
+  margin-left: 2px;
+}
+
+.bookBtn {
+  background: var(--primary);
+  color: white;
+  padding: 12px 28px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bookBtn:hover {
+  background: var(--primary-hover);
+  transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .action {
+    margin-left: 0;
+    margin-top: 24px;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+  }
+}
