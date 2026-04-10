@@ -1,0 +1,11 @@
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Project folders should be ignored if they are outside the main nya-train folder
+dist/
+node_modules/
