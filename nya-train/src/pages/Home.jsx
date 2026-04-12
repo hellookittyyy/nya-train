@@ -23,7 +23,7 @@ const Home = () => {
         onClick={() => navigate('/my-tickets')}
         style={{ position: 'absolute', top: '24px', right: '24px', display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 20px', borderRadius: '100px', background: 'var(--primary)', color: 'white', border: 'none', fontWeight: 'bold', cursor: 'pointer', boxShadow: '0 4px 12px rgba(233, 30, 99, 0.3)' }}
       >
-        <Ticket size={18} /> Мої квитки
+        <Ticket size={18} /> My Tickets
       </button>
       <header style={{ 
         padding: '60px 0 20px', 

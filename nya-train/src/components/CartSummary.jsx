@@ -18,9 +18,9 @@ const CartSummary = ({
             <div className={styles.cartContainer}>
                 <div className={styles.emptyCart}>
                     <div style={{ fontSize: '2rem', marginBottom: '8px' }}>💺</div>
-                    <span>Місця не обрано</span>
+                    <span>No seats selected</span>
                     <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: 400 }}>
-                        Оберіть потрібні місця на схемі вагона ліворуч.
+                        Select seats on the wagon map on the left.
                     </span>
                 </div>
             </div>
@@ -46,7 +46,7 @@ const CartSummary = ({
                     const itemPrice = calculateItemPrice(seat);
                     return (
                         <div key={seat} className={styles.seatItem}>
-                            <span>{selectedWagon?.number} вагон, {seat} місце</span>
+                            <span>Wagon {selectedWagon?.number}, Seat {seat}</span>
                             <div className={styles.seatPriceWrap}>
                                 <span>{itemPrice.toFixed(2)} ₴</span>
                                 <button className={styles.removeBtn} onClick={() => onRemoveSeat(seat)}>
@@ -60,13 +60,13 @@ const CartSummary = ({
 
             <div className={styles.totalsSection}>
                 <div className={styles.totalRow}>
-                    <span>Усього</span>
+                    <span>Total</span>
                     <span>{total.toFixed(2)} ₴</span>
                 </div>
                 
                 {step === 'seats' ? (
                     <button className={styles.primaryBtn} onClick={onNextStep}>
-                        Перейти до пасажирів
+                        Proceed to passengers
                     </button>
                 ) : (
                     <button 
@@ -74,7 +74,7 @@ const CartSummary = ({
                         onClick={onSubmit}
                         disabled={isSubmitting}
                     >
-                        {isSubmitting ? 'Обробка...' : 'Перейти до оплати'}
+                        {isSubmitting ? 'Processing...' : 'Proceed to payment'}
                     </button>
                 )}
             </div>

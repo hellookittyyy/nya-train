@@ -35,8 +35,8 @@ const BookingForm = ({ selectedSeats, selectedWagon, onSubmit, onChange }) => {
     const validatePassenger = (idx) => {
         const p = passengers[idx];
         const newErrors = {};
-        if (!p.name.trim()) newErrors.name = "Ім'я обов'язкове";
-        if (!p.lastName.trim()) newErrors.lastName = "Прізвище обов'язкове";
+        if (!p.name.trim()) newErrors.name = "First name is required";
+        if (!p.lastName.trim()) newErrors.lastName = "Last name is required";
         return newErrors;
     };
 
@@ -91,14 +91,14 @@ const BookingForm = ({ selectedSeats, selectedWagon, onSubmit, onChange }) => {
                         <div key={p.seat} className={styles.collapsedCard} onClick={() => setActiveIdx(idx)}>
                             <div className={styles.collapsedHeader}>
                                 <div>
-                                    <span style={{ fontWeight: 600 }}>{p.name || p.lastName ? `${p.lastName} ${p.name}` : `Пасажир ${idx + 1}`}</span>
-                                    <span className={styles.seatBadge}>{selectedWagon?.number} вагон, {p.seat} місце</span>
+                                    <span style={{ fontWeight: 600 }}>{p.name || p.lastName ? `${p.lastName} ${p.name}` : `Passenger ${idx + 1}`}</span>
+                                    <span className={styles.seatBadge}>Wagon {selectedWagon?.number}, Seat {p.seat}</span>
                                 </div>
                                 <MoreVertical size={18} color="#6B6B6B" />
                             </div>
                             {(p.bedding || p.drinks) && (
                                 <div className={styles.collapsedDetails}>
-                                    {p.bedding && "Постіль"} {p.bedding && p.drinks && " • "} {p.drinks && "Напій"}
+                                    {p.bedding && "Bedding"} {p.bedding && p.drinks && " • "} {p.drinks && "Drink"}
                                 </div>
                             )}
                         </div>
@@ -108,15 +108,15 @@ const BookingForm = ({ selectedSeats, selectedWagon, onSubmit, onChange }) => {
                 return (
                     <div key={p.seat} className={styles.activeCard}>
                         <div className={styles.activeHeader}>
-                            <span style={{ fontWeight: 600, fontSize: '1.1rem' }}>Пасажир {idx + 1}</span>
-                            <span className={styles.seatBadge}>{selectedWagon?.number} вагон, {p.seat} місце</span>
+                            <span style={{ fontWeight: 600, fontSize: '1.1rem' }}>Passenger {idx + 1}</span>
+                            <span className={styles.seatBadge}>Wagon {selectedWagon?.number}, Seat {p.seat}</span>
                             <div style={{ flexGrow: 1 }} />
                             <MoreVertical size={18} color="#6B6B6B" />
                         </div>
 
                         <div className={styles.formRow}>
                             <div className={styles.formGroup}>
-                                <label>Ім'я</label>
+                                <label>First Name</label>
                                 <input 
                                     type="text" 
                                     value={p.name}
@@ -125,7 +125,7 @@ const BookingForm = ({ selectedSeats, selectedWagon, onSubmit, onChange }) => {
                                 {err.name && <span className={styles.error}>{err.name}</span>}
                             </div>
                             <div className={styles.formGroup}>
-                                <label>Прізвище</label>
+                                <label>Last Name</label>
                                 <input 
                                     type="text" 
                                     value={p.lastName}
@@ -136,13 +136,13 @@ const BookingForm = ({ selectedSeats, selectedWagon, onSubmit, onChange }) => {
                         </div>
 
                         <div className={styles.addPrivilege}>
-                            <Plus size={16} /> Додати пільгу
+                            <Plus size={16} /> Add discount
                         </div>
 
                         <div className={styles.togglesGrid}>
                             <div className={styles.toggleCard}>
                                 <div className={styles.toggleInfo}>
-                                    <span style={{fontWeight: 600}}>Постіль</span>
+                                    <span style={{fontWeight: 600}}>Bedding</span>
                                     <span style={{fontSize: '0.8.5rem', color: 'var(--text-muted)'}}>+95 ₴</span>
                                 </div>
                                 <label className={styles.switch}>
@@ -152,7 +152,7 @@ const BookingForm = ({ selectedSeats, selectedWagon, onSubmit, onChange }) => {
                             </div>
                             <div className={styles.toggleCard}>
                                 <div className={styles.toggleInfo}>
-                                    <span style={{fontWeight: 600}}>Напій</span>
+                                    <span style={{fontWeight: 600}}>Drink</span>
                                     <span style={{fontSize: '0.8.5rem', color: 'var(--text-muted)'}}>+20 ₴</span>
                                 </div>
                                 <label className={styles.switch}>
@@ -164,12 +164,12 @@ const BookingForm = ({ selectedSeats, selectedWagon, onSubmit, onChange }) => {
 
                         {idx < passengers.length - 1 && (
                             <button className={styles.nextBtn} onClick={(e) => handleNextPassenger(e, idx)}>
-                                Наступний пасажир
+                                 Next passenger
                             </button>
                         )}
                         {idx === passengers.length - 1 && (
                             <button type="submit" className={styles.nextBtn}>
-                                Перейти до оплати
+                                 Proceed to payment
                             </button>
                         )}
                     </div>

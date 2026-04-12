@@ -106,14 +106,14 @@ const BookingContent = () => {
     const pricePerSeat = train.price * (selectedWagon?.priceMultiplier || 1);
     
     const departureDate = new Date(train.departure);
-    const formattedDate = departureDate.toLocaleDateString('uk-UA', { day: 'numeric', month: 'long' });
-    const formattedTime = departureDate.toLocaleTimeString('uk-UA', { hour: '2-digit', minute: '2-digit' });
+    const formattedDate = departureDate.toLocaleDateString('en-US', { day: 'numeric', month: 'long' });
+    const formattedTime = departureDate.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
 
     return (
         <div className={`animate-fade-in ${styles.container}`}>
             <header className={styles.header}>
                 <button className={styles.backBtn} onClick={() => step === 'passengers' ? setStep('seats') : navigate('/')}>
-                    <ArrowLeft size={20} /> {step === 'passengers' ? 'Назад до вибору місць' : 'Назад до розкладу'}
+                    <ArrowLeft size={20} /> {step === 'passengers' ? 'Back to seat selection' : 'Back to schedule'}
                 </button>
             </header>
 
