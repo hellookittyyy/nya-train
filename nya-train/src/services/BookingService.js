@@ -45,6 +45,24 @@ export const BookingService = {
     });
   },
 
+  clearAllBookings: async () => {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            const bookingHistoryKey = 'nya_booking_history';
+            localStorage.removeItem(bookingHistoryKey);
+            
+            // Also need to clear all specific wagon seat keys
+            Object.keys(localStorage).forEach(key => {
+                if (key.startsWith('booked_')) {
+                    localStorage.removeItem(key);
+                }
+            });
+            
+            resolve({ success: true });
+        }, 300);
+    });
+  },
+
   saveBooking: async (trainId, wagonId, selectedSeats, userData) => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {

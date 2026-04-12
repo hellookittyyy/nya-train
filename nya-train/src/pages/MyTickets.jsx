@@ -83,8 +83,8 @@ const MyTickets = () => {
                                     <div key={idx} style={{ display: 'flex', justifyContent: 'space-between', fontSize: '1.05rem', color: 'var(--text-main)', background: 'var(--background)', padding: '12px 16px', borderRadius: 'var(--radius-sm)' }}>
                                         <span><strong>Seat {ticket.seats[idx]}</strong>: {p.firstName} {p.lastName}</span>
                                         <span style={{ color: 'var(--text-muted)' }}>
-                                            {p.bedding && '🛏️ '}
-                                            {p.drinks > 0 && `☕ x${p.drinks}`}
+                                            {p.bedding && '🛏️ Bedding '}
+                                            {p.drinks && `☕ Drink`}
                                         </span>
                                     </div>
                                 ))}
